@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Academic Roulette: The Final Exam</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Noto Sans TC"', 'sans-serif'],
+            },
+            colors: {
+              chalkboard: {
+                900: '#1a2e26', // Dark Green Board
+                800: '#233d33',
+                700: '#2d4d40',
+              },
+              chalk: {
+                100: '#fcfcfc',
+                200: '#e0e0e0',
+                300: '#c2c2c2',
+              }
+            },
+            animation: {
+              'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+              'fade-in': 'fadeIn 0.5s ease-out',
+              'pop-in': 'popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards',
+              'jump': 'jump 0.4s ease-in-out',
+              'attack-up': 'attackUp 0.4s ease-in-out',
+              'attack-down': 'attackDown 0.4s ease-in-out',
+              'damage-effect': 'damageEffect 0.5s ease-out',
+              'dodge-effect': 'dodgeEffect 0.5s ease-out',
+            },
+            keyframes: {
+              shake: {
+                '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+              },
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              popIn: {
+                '0%': { opacity: '0', transform: 'scale(0.8) translateY(20px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              },
+              jump: {
+                '0%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-30px)' },
+                '100%': { transform: 'translateY(0)' }
+              },
+              attackUp: {
+                '0%': { transform: 'translateY(0) scale(1)' },
+                '50%': { transform: 'translateY(-150px) scale(1.2)' },
+                '100%': { transform: 'translateY(0) scale(1)' }
+              },
+              attackDown: {
+                '0%': { transform: 'translateY(0) scale(1)' },
+                '50%': { transform: 'translateY(150px) scale(1.2)' },
+                '100%': { transform: 'translateY(0) scale(1)' }
+              },
+              damageEffect: {
+                '0%': { transform: 'translateX(0)', filter: 'brightness(1)' },
+                '20%': { transform: 'translateX(-10px) rotate(-5deg)', filter: 'brightness(0.5) sepia(1) hue-rotate(-50deg) saturate(5)' }, // Red flash
+                '40%': { transform: 'translateX(10px) rotate(5deg)' },
+                '60%': { transform: 'translateX(-10px)' },
+                '80%': { transform: 'translateX(5px)' },
+                '100%': { transform: 'translateX(0)', filter: 'brightness(1)' }
+              },
+              dodgeEffect: {
+                '0%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-20px) scale(0.95)', filter: 'brightness(1.5)' },
+                '100%': { transform: 'translateY(0)' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #1a1a1a;
+        color: #fcfcfc;
+      }
+      /* Custom Scrollbar for Logs */
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
